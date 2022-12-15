@@ -20,11 +20,7 @@ all: 	$(NAME)
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 	@echo "$(NAME) created!$(DEFAULT)💯"
-
-
-
-
-
+	
 clean:
 	@$(RM) $(OBJS)
 	@echo "$(YELLOW)object files deleted!$(DEFAULT)💯"
