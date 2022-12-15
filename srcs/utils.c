@@ -6,7 +6,7 @@
 /*   By: loadjou <loadjou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 10:56:38 by loadjou           #+#    #+#             */
-/*   Updated: 2022/12/09 12:59:56 by loadjou          ###   ########.fr       */
+/*   Updated: 2022/12/12 17:18:00 by loadjou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ int	only_digits(char **argv)
 	while (argv[i])
 	{
 		j = 0;
-		while (argv[i][j++])
+		while (argv[i][j])
+		{
 			if (!((argv[i][j] >= '0' && argv[i][j] <= '9')
-					|| (argv[i][j] == ' ')))
+						|| (argv[i][j] == ' ')))
+			{
 				return (0);
+			}
+			j++;
+		}
 		i++;
 	}
 	return (1);
