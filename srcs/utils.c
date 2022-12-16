@@ -6,7 +6,7 @@
 /*   By: loadjou <loadjou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 10:56:38 by loadjou           #+#    #+#             */
-/*   Updated: 2022/12/12 17:18:00 by loadjou          ###   ########.fr       */
+/*   Updated: 2022/12/15 17:19:20 by loadjou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,17 @@ long	ft_atol(char *str)
 		i++;
 	}
 	return (result * sign);
+}
+
+void    free_structs(t_table *tab)
+{
+    size_t i = 0;
+    while(i < tab->philos_nb)
+    {
+        if(&tab->philos[i])
+            free(&tab->philos[i]);
+        if(&tab->forks[i])
+            free(&tab->forks[i]);
+        i++;
+    }
 }
