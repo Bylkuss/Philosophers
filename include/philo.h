@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loadjou <loadjou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bylkus <bylkus@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:07:40 by loadjou           #+#    #+#             */
-/*   Updated: 2022/12/15 20:02:22 by loadjou          ###   ########.fr       */
+/*   Updated: 2022/12/16 20:34:01 by bylkus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ void			    destroy_threads(t_table *tab);
 void			    join_threads(t_table *tab);
 void			    init_threads(t_table *tab);
 void				init_mutex(t_table *tab);
-
+/*	philo.c	*/
+void*				routine(void *args);
 /* ************************************************************************** */
 /*									</PROTOTYPES>							  */
 /* ************************************************************************** */

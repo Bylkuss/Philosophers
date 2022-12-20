@@ -4,10 +4,11 @@ NAME = philo
 SRCS_PATH = srcs/
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra #-fsanitize=thread -g
-RM = rm -f
+# CFLAGS = -Wall -Werror -Wextra -lpthread -fsanitize=thread -g
+CFLAGS = -Wall -Werror -Wextra #-lpthread
+RM = rm -rf
 
-SRCS_FILES = main.c logs.c utils.c
+SRCS_FILES = main.c logs.c utils.c routine.c philo.c
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_FILES))
 
@@ -18,7 +19,7 @@ all: 	$(NAME)
 
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(NAME) created!$(DEFAULT)💯"
 	
 clean:

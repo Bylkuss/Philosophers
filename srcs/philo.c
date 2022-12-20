@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loadjou <loadjou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bylkus <bylkus@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:44:29 by loadjou           #+#    #+#             */
-/*   Updated: 2022/12/15 19:46:29 by loadjou          ###   ########.fr       */
+/*   Updated: 2022/12/16 21:07:04 by bylkus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    *check_death(void *args)
 {
-    (void) data;
+    (void) args;
     return 0;
 }
 
@@ -39,10 +39,10 @@ void    init_threads(t_table *tab)
     while(i < tab->philos_nb)
     {
         tab->philos[i].id = i + 1;
-        pthread_create(&tab->philos[i].thread, &routine, (void *)&tab->philos[i], NULL);
+        pthread_create(&tab->philos[i].thread, NULL, &routine, (void *)&tab->philos[i]);
         i++;
     }
-    pthread_create(&tab->check_death, &check_death, (void *)tab, NULL);
+    // pthread_create(&tab->check_death, &check_death, (void *)tab, NULL);
 }
 
 void    join_threads(t_table *tab)
@@ -50,10 +50,10 @@ void    join_threads(t_table *tab)
     size_t i = 0;
     while(i < tab->philos_nb)
     {
-        pthread_join(tab->check_death, (void *) &tab);
+        pthread_join(tab->philos[i].thread, NULL);
         i++;
     }
-    pthread_join(tab->check_death, (void *) &tab);
+    // pthread_join(tab->check_death, (void *) &tab);
 }
 
 void    destroy_threads(t_table *tab)
